@@ -43,7 +43,7 @@ global $num, $limit, $search, $url, $pearDB, $search_type_service, $search_type_
        $host_name, $hostgroup, $rows, $p, $gopt, $pagination, $poller, $template, $search_output, $search_service;
 
 $type = $_REQUEST["type"] ?? null;
-$o = $_GET["o"] ?? $o = null;
+$o = $_GET["o"] ?? null;
 
 //saving current pagination filter value and current displayed page
 $centreon->historyPage[$url] = $num;
@@ -175,7 +175,6 @@ for ($i2 = 0, $iEnd = $num; ($iEnd < ($rows / $limit - 1)) && ($i2 < (5 + $i)); 
 
 if ($rows != 0) {
     for ($i = $iStart; $i <= $iEnd; $i++) {
-
         $urlPage = "main.php?p=" . $p . "&num=" . $i . "&limit=" . $limit . "&poller=" . $poller .
             "&template=" . $template . "&search=" . $search . "&type=" . $type . "&o=" . $o . $url_var;
         $pageArr[$i] = array(
