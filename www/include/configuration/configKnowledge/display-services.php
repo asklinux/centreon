@@ -170,7 +170,7 @@ try {
         $query .= "AND s2.service_description LIKE '%" . $_REQUEST['searchService'] . "%' ";
     }
     $query .= " ) as t1 ";
-    $query .= " ORDER BY " . $orderby . $order . " LIMIT " . $num * $limit . ", " . $limit;
+    $query .= " ORDER BY " . $orderby . " " . $order . " LIMIT " . $num * $limit . ", " . $limit;
 
     $res = $pearDB->query($query);
 

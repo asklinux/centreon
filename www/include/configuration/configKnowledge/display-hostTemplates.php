@@ -114,7 +114,7 @@ try {
     if (isset($_REQUEST['searchHostTemplate']) && $_REQUEST['searchHostTemplate']) {
         $query .= " AND host.host_name LIKE '%" . $_REQUEST['searchHostTemplate'] . "%' ";
     }
-    $query .= " ORDER BY " . $orderby . $order . " LIMIT " . $num * $limit . ", " . $limit;
+    $query .= " ORDER BY " . $orderby . " " . $order . " LIMIT " . $num * $limit . ", " . $limit;
     $dbResult = $pearDB->query($query);
 
     $rows = $pearDB->query("SELECT FOUND_ROWS()")->fetchColumn();

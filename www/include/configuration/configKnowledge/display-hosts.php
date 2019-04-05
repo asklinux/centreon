@@ -49,10 +49,11 @@ if (!isset($limit) || !$limit) {
     $limit = $oreon->optGen["maxViewConfiguration"];
 }
 
+/*
 if (isset($_POST['num']) && $_POST['num'] == 0) {
     $_GET['num'] = 0;
 }
-
+*/
 if (isset($_POST['searchHost'])) {
     if (!isset($_POST['searchHasNoProcedure']) && isset($_GET['searchHasNoProcedure'])) {
         unset($_REQUEST['searchHasNoProcedure']);
@@ -125,7 +126,7 @@ try {
     if (isset($_REQUEST['searchHost']) && $_REQUEST['searchHost']) {
         $query .= " AND host_name LIKE '%" . $pearDB->escape($_REQUEST['searchHost']) . "%'";
     }
-    $query .= " ORDER BY " . $orderby . $order . " LIMIT " . $num * $limit . ", " . $limit;
+    $query .= " ORDER BY " . $orderby . " " . $order . " LIMIT " . $num * $limit . ", " . $limit;
     $dbResult = $pearDB->query($query);
 
     $rows = $pearDB->query("SELECT FOUND_ROWS()")->fetchColumn();

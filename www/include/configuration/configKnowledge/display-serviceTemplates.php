@@ -116,7 +116,7 @@ try {
     if (isset($_REQUEST['searchServiceTemplate']) && $_REQUEST['searchServiceTemplate']) {
         $query .= " AND service_description LIKE '%" . $_REQUEST['searchServiceTemplate'] . "%' ";
     }
-    $query .= "ORDER BY " . $orderby . $order . " LIMIT " . $num * $limit . ", " . $limit;
+    $query .= "ORDER BY " . $orderby . " " . $order . " LIMIT " . $num * $limit . ", " . $limit;
     $dbResult = $pearDB->query($query);
     $rows = $pearDB->query("SELECT FOUND_ROWS()")->fetchColumn();
 
